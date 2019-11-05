@@ -1,0 +1,21 @@
+<div class="list-items">
+    <h1>Product Filter:</h1>
+    <input type="text" [(ngModel)]="query" placeholder="Search product name....">
+    <h1>Product List:</h1>
+    <div>
+        <table id="customers">
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Product</th>
+                <th>Cart:<a [routerLink]="" (click)="newMessage()">{{itemAdded.length}}</a></th>
+            </tr>
+            <tr *ngFor="let item of productList | startsWith : query">
+                <td>{{item.name}}</td>
+                <td>{{item.price}}</td>
+                <td><img style="width: 50px;height: 50px;" [src]="item.img" /></td>
+                <td><a [routerLink]="" (click)="addToCart(item)">add to cart</a></td>
+            </tr>
+        </table>
+    </div>
+</div>
